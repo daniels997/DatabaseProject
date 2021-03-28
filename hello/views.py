@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.http import JsonResponse
+from avl_tree import AVLTree
 
 import json
 import praw
@@ -22,6 +23,8 @@ def reddit(request):
     )
 
     tickers = []
+    foundTickers = AVLTree()
+    falseTickers = AVLTree()
     errortic = yf.Ticker("")
 
     #get subreddit and scrape for tickers. place possible tickeres in 2d array
@@ -30,17 +33,19 @@ def reddit(request):
         if row:
             tickers.append(row)
 
-    #read array and check if its a valid ticker with yf (this can be optimized by builting a heap or binary tree of already found tickers)
+    #read array and check if its a valid ticker with yf
     for r in tickers:
         for c in r:
-            print(c)
-            ticker = yf.Ticker(c)
-            try:
-                if (errortic.calendar == ticker.calendar):
-                    print("Not a stock")
-            except:
-                #on existing ticker print ticker obj. Add to database here
-                print(ticker)
+            if not foundTickers.searchFor(c):
+                print(c)
+                ticker = yf.Ticker(c)
+                try:
+                    if (errortic.calendar == ticker.calendar):
+                        foundTickers.insert(c)
+                        print("Not a stock")
+                except:
+                    foundTickers.insert(c)
+                    print(ticker)
 
 
 
