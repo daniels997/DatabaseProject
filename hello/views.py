@@ -2,8 +2,9 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .forms import query1Form
+from .forms import query1Form, query2Form
 from .query1Script import query1Script
+from .query2Script import query2Script
 
 
 def home(request):
@@ -29,12 +30,16 @@ def query1(request):
     )
 
 def query2(request):
-    #return HttpResponse("buy gme i guess")
+    if request.method == 'POST':
+        form = query2Form(request.POST)
+        if form.is_valid():
+            query2Script(form.cleaned_data['date1'], form.cleaned_data['date2'])
+    else:
+        form = query2Form()
+
     return render(
         request,
-        'index.html',
-        {
-        }
+        'query2.html',
     )
 
 def query3(request):

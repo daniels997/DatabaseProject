@@ -6,3 +6,7 @@ class query1Form(forms.Form):
     date2 = forms.DateField(label='date2')
     y = forms.IntegerField(label='y')
     z = forms.IntegerField(label='z')
+
+class query2Form(forms.Form):
+    date1 = forms.DateField(label='date1')
+    date2 = forms.DateField(label='date2')
