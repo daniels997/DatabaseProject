@@ -2,9 +2,14 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .forms import query1Form, query2Form
+from .forms import query1Form, query2Form, query3Form, query4Form, query5Form, query6Form, query7Form
 from .query1Script import query1Script
 from .query2Script import query2Script
+from .query3Script import query3Script
+from .query4Script import query4Script
+from .query5Script import query5Script
+from .query6Script import query6Script
+from .query7Script import query7Script
 
 
 def home(request):
@@ -43,46 +48,66 @@ def query2(request):
     )
 
 def query3(request):
-    #return HttpResponse("buy gme i guess")
+    if request.method == 'POST':
+        form = query3Form(request.POST)
+        if form.is_valid():
+            query3Script(form.cleaned_data['x'], form.cleaned_data['y'], form.cleaned_data['z'])
+    else:
+        form = query3Form()
+
     return render(
         request,
-        'index.html',
-        {
-        }
+        'query3.html',
     )
 
 def query4(request):
-    #return HttpResponse("buy gme i guess")
+    if request.method == 'POST':
+        form = query4Form(request.POST)
+        if form.is_valid():
+            query4Script(form.cleaned_data['x'], form.cleaned_data['y'])
+    else:
+        form = query4Form()
+
     return render(
         request,
-        'index.html',
-        {
-        }
+        'query4.html',
     )
 
 def query5(request):
-    #return HttpResponse("buy gme i guess")
+    if request.method == 'POST':
+        form = query5Form(request.POST)
+        if form.is_valid():
+            query5Script(form.cleaned_data['z'])
+    else:
+        form = query5Form()
+
     return render(
         request,
-        'index.html',
-        {
-        }
+        'query5.html',
     )
 
 def query6(request):
-    #return HttpResponse("buy gme i guess")
+    if request.method == 'POST':
+        form = query6Form(request.POST)
+        if form.is_valid():
+            query6Script(form.cleaned_data['date1'], form.cleaned_data['date2'])
+    else:
+        form = query6Form()
+
     return render(
         request,
-        'index.html',
-        {
-        }
+        'query6.html',
     )
 
 def query7(request):
-    #return HttpResponse("buy gme i guess")
+    if request.method == 'POST':
+        form = query7Form(request.POST)
+        if form.is_valid():
+            query7Script(form.cleaned_data['x'], form.cleaned_data['y'])
+    else:
+        form = query7Form()
+
     return render(
         request,
-        'index.html',
-        {
-        }
+        'query7.html',
     )
