@@ -1,5 +1,9 @@
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+
+from .forms import query1Form
+from .query1Script import query1Script
 
 
 def home(request):
@@ -12,10 +16,16 @@ def home(request):
     )
 
 def query1(request):
+    if request.method == 'POST':
+        form = query1Form(request.POST)
+        if form.is_valid():
+            query1Script(form.cleaned_data['x'], form.cleaned_data['date1'], form.cleaned_data['date2'], form.cleaned_data['y'], form.cleaned_data['z'])
+    else:
+        form = query1Form()
+
     return render(
         request,
         'query1.html',
-        #context={x},
     )
 
 def query2(request):
