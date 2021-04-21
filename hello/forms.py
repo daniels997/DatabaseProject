@@ -18,7 +18,6 @@ class query3Form(forms.Form):
 
 class query4Form(forms.Form):
     x = forms.IntegerField(label='x')
-    y = forms.IntegerField(label='y')
 
 class query5Form(forms.Form):
     z = forms.DateField(label='z')
