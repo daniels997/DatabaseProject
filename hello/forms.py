@@ -24,8 +24,7 @@ class query5Form(forms.Form):
     z = forms.DateField(label='z')
 
 class query6Form(forms.Form):
-    date1 = forms.DateField(label='date1')
-    date2 = forms.DateField(label='date2')
+    x = forms.IntegerField(label='x')
 
 class query7Form(forms.Form):
     x = forms.IntegerField(label='x')

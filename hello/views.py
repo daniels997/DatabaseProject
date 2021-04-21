@@ -90,7 +90,7 @@ def query6(request):
     if request.method == 'POST':
         form = query6Form(request.POST)
         if form.is_valid():
-            query6Script(form.cleaned_data['date1'], form.cleaned_data['date2'])
+            query6Script(form.cleaned_data['x'])
     else:
         form = query6Form()
 
