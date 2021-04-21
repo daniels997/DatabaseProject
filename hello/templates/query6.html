@@ -1,0 +1,65 @@
+{% block content %}
+
+<html>
+<head>
+	<title> CIS4301 Information and Database Management Systems </title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'index.css'%}">
+
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+
+			<ul class="logo"><img src="{% static 'uf.jpg'%}"></ul>
+			<div class="classtitle">
+				<ul>CIS 4301
+                    <div class="navbar-right"> 
+                        <a href='/'><button >Homepage</button></a> 
+                    </div> 
+                </ul>
+				<ul>Information and Database Management Systems</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="navPostHome">
+
+		<ul>Stock Queries</ul>
+        <div class="navBar">
+            <div class="query1">
+                <a href='query1'><button>What stocks have a volume above x between date1 and date2 that were mentioned in y amount of times in Reddit and z amount of times in Twitter?</button></a>
+            </div>
+            <div class="query2">
+                <a href='query2'><button>What stocks have lost the most from x date to y date?</button></a>
+            </div>
+            <div class="query3">
+                <a href='query3'><button>What was the opening price of a ticker symbol x on this date y and has a mention by z user on Twitter?</button></a>
+            </div>
+            <div class="query4">
+                <a href='query4'><button>What stocks have made at least x% in y amount of time?</button></a>
+            </div>
+            <div class="query5">
+                <a href='query5'><button>What are the amounts of Twitter mentions of each stock that had a higher closing price than opening price on date z?</button></a>
+            </div>
+            <div class="query6">
+                <a href='query6'><button>Which stocks grew more than x% in a single day?</button></a>
+            </div>
+            <div class="query7">
+                <a href='query7'><button>How many tuples are in the database?</button></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- place functionalities here Arie-->
+    <div class="queryFunc">
+        <form action="/query6" method="post">{% csrf_token %}
+            <label for="x">x: </label>
+            <input id="x" type="number" name="x">
+            <button class="button" id="b1">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}

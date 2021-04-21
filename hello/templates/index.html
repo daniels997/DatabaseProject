@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title> CIS4301 Information and Database Management Systems </title>
+
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'index.css'%}">
+
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+
+			<ul class="logo"><img src="{% static 'uf.jpg'%}"></ul>
+			<div class="classtitle">
+				<ul>
+					CIS 4301
+					
+				</ul>
+				<ul>Information and Database Management Systems</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="title">
+
+		<ul>Stock Queries</ul>
+        <div class="navBar">
+            <div class="query1">
+                <a href='query1'><button>What stocks have a volume above x between date1 and date2 that were mentioned in y amount of times in Reddit and z amount of times in Twitter?</button></a>
+            </div>
+            <div class="query2">
+                <a href='query2'><button>What stocks have lost the most from x date to y date?</button></a>
+            </div>
+            <div class="query3">
+                <a href='query3'><button>What was the opening price of a ticker symbol x on this date y and has a mention by z user on Twitter?</button></a>
+            </div>
+            <div class="query4">
+                <a href='query4'><button>What stocks have made at least x% in y amount of time?</button></a>
+            </div>
+            <div class="query5">
+                <a href='query5'><button>What are the amounts of Twitter mentions of each stock that had a higher closing price than opening price on date z?</button></a>
+            </div>
+            <div class="query6">
+                <a href='query6'><button>Which stocks grew more than x% in a single day?</button></a>
+            </div>
+            <div class="query7">
+                <a href='query7'><button>How many tuples are in the database?</button></a>
+            </div>
+        </div>
+	</div>
+
+	<div class="contacts">
+		<h1>Contact Information</h1>
+		<h2>    <ul>     </ul> </h2>
+		<h2> Name: <ul> Email: </ul> </h2>
+        <h2> Daniel Shin <ul> daniel.shin@ufl.edu </ul> </h2>
+        <h2> Nick Fox <ul> fox.nbrian@ufl.edu </ul> </h2>
+        <h2> Joshua Best <ul> joshua.best@ufl.edu </ul> </h2>
+        <h2> Benjamin Rodriguez <ul> brodriguez3@ufl.edu </ul> </h2>
+	</div>
+</body>
+</html>

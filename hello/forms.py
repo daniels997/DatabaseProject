@@ -27,5 +27,4 @@ class query6Form(forms.Form):
     x = forms.IntegerField(label='x')
 
 class query7Form(forms.Form):
-    x = forms.IntegerField(label='x')
-    y = forms.IntegerField(label='y')
+    x = 1

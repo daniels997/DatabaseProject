@@ -103,7 +103,7 @@ def query7(request):
     if request.method == 'POST':
         form = query7Form(request.POST)
         if form.is_valid():
-            query7Script(form.cleaned_data['x'], form.cleaned_data['y'])
+            query7Script()
     else:
         form = query7Form()
 
