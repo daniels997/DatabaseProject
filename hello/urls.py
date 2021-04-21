@@ -9,5 +9,6 @@ urlpatterns = [
     path("query4", views.query4, name="query4"),
     path("query5", views.query5, name="query5"),
     path("query6", views.query6, name="query6"),
-    path("query7", views.query7, name="query7")
+    path("query7", views.query7, name="query7"),
+    path("results", views.results, name="results")
 ]
